@@ -2,8 +2,8 @@ const estudianteService = require('../services/estudianteService');
 const Estudiante = require('../models/Estudiante');
 
 const obtenerEstudiante = async (req, res) => {
-    const estudiante = await estudianteService.obtenerTodosLosEstuadiantes();
-    res.render('estudiantes/detalle', {estudiante});
+    const estudiantes = await estudianteService.obtenerTodosLosEstuadiantes();
+    res.render('estudiantes/index', {estudiantes});
 };
 
 const obtenerEstudiantePorRut = async (req,res) =>{
