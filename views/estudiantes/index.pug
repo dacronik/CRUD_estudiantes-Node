@@ -1,0 +1,52 @@
+doctype html
+html
+  head
+    title Productos
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+  body
+    .container
+      h1.mt-5 Lista de Estudiantes
+      
+      // Tabla de productos con Bootstrap
+      table.table.table-striped.mt-4
+        thead
+          tr
+            th Nombre
+            th Rut
+            th Curso
+            th Nivel
+            
+        tbody
+          each estudiante in estudiantes
+            tr
+              td #{estudiante.nombre}
+              td #{estudiante.rut}
+              td #{estudiante.curso} $
+              td #{estudiante.nivel}
+              td 
+                a.btn.btn-info(href=`/estudiantes/${estudiante.id}`) Ver Detalles
+              
+      h2.mt-5 Agregar Estudiante
+      form(action="/estudiantes" method="POST" class="mt-3")
+        .form-group
+          label(for="nombre") Nombre:
+          input.form-control(type="text" name="nombre" required)
+
+        .form-group
+          label(for="rut") Rut:
+          input.form-control(type="text" name="rut" required)
+
+        .form-group
+          label(for="curso") Curso:
+          input.form-control(type="text" name="curso" required)
+
+        .form-group
+          label(for="nivel") Nivel:
+          input.form-control(type="number" name="nivel" required)
+
+
+        button.btn.btn-primary(type="submit") Agregar Estudiante
+
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")

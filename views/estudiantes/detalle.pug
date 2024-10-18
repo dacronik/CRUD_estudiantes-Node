@@ -1,0 +1,43 @@
+doctype html
+html
+  head
+    title #{estudiante.nombre}
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+  body
+    .container
+      .row.mt-5
+        .col-md-8.offset-md-2
+          .card
+            .card-body
+              h1.card-title #{estudiante.nombre}
+              p.card-text.lead #{estudiante.rut}
+
+              hr
+
+              .row
+                .col-md-6
+                  p.font-weight-bold Curso: 
+                  span.badge.badge-success #{estudiante.curso} $
+                .col-md-6
+                  p.font-weight-bold Nivel: 
+                  span.badge.badge-info #{estudiante.nivel}
+
+              hr
+
+              .row.mt-3
+                .col
+                  a.btn.btn-secondary(href="/estudiantes") Volver a la lista de estudiantes
+
+              .row.mt-3
+                .col-md-6
+                  // Formulario para eliminar producto
+                  form(action=`/estudiantes/${estudiante.id}/eliminar` method="POST")
+                    button.btn.btn-danger(type="submit") Eliminar Estudiantes
+
+                .col-md-6
+                  // Formulario para actualizar producto
+                  a.btn.btn-primary(href=`/estudiantes/${estudiante.id}/editar`) Actualizar Producto
+
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")

@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title Editar Estudiante
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+  body
+    .container
+      h1.mt-5 Editar Estudiante
+
+      form(action=`/estudiantes/${estudiante.id}/actualizar` method="POST")
+        .form-group
+          label(for="nombre") Nombre:
+          input.form-control(type="text" name="nombre" value=estudiante.nombre required)
+
+        .form-group
+          label(for="rut") Rut:
+          input.form-control(type="text" name="rut" value=pestudiante.rut required)
+
+        .form-group
+          label(for="curso") Curso:
+          input.form-control(type="text" name="curso" value=estudiante.curso required)
+
+        .form-group
+          label(for="nivel") Nivel:
+          input.form-control(type="number" name="nivel" value=estudiante.nivel required)
+
+        
+
+        button.btn.btn-primary(type="submit") Actualizar Estudiante
+
+      a.btn.btn-secondary.mt-3(href="/estudiantes") Volver a la lista de estudiantes
