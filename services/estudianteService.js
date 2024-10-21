@@ -5,6 +5,10 @@ const obtenerTodosLosEstuadiantes = async() => {
     return await Estudiante.findAll();
 };
 
+const obtenerTodosLosEstudiantesPorId = async(id) =>{
+    return await Estudiante.findAll(id);
+}
+
 const obtenerEstudiantePorRut = async(rut) => {
     return await Estudiante.findByPk(rut);
 };
@@ -32,6 +36,7 @@ const eliminarEstudiante = async(id) => {
 module.exports = {
     obtenerTodosLosEstuadiantes,
     obtenerEstudiantePorRut,
+    obtenerTodosLosEstudiantesPorId,
     agregarEstudiante,
     actualizarEstudiante,
     eliminarEstudiante,

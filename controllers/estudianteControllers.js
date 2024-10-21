@@ -6,6 +6,11 @@ const obtenerEstudiante = async (req, res) => {
     res.render('estudiantes/index', {estudiantes});
 };
 
+const obtenerEstudiantePorId = async (req, res) => {
+    const estudiante = await estudianteService.obtenerTodosLosEstudiantesPorId();
+    res.render('estudiantes/detalle', {estudiante});
+};
+
 const obtenerEstudiantePorRut = async (req,res) =>{
     const estudiante = await estudianteService.obtenerEstudiantePorRut(req.params.rut);
     res.render('estudiantes/detalle', {estudiante});
@@ -32,11 +37,12 @@ const mostrarFormularioEditarEstudiante = async (req, res) => {
     if(!estudiante){
         return res.status(404).send('Estudiante no encontrado');
     }
-    res.render('estdiantes/editarEstudiante', {estudiante})
+    res.render('estudiantes/editarEstudiante', {estudiante})
 };
 
 module.exports = {
     obtenerEstudiante,
+    obtenerEstudiantePorId,
     obtenerEstudiantePorRut,
     agregarEstudiante,
     actualizarEstudiante,
